@@ -11,7 +11,7 @@ class SegundoGrau:
   def main(self):
 
     def puxando_dados():
-      
+
       self.a = int(entrada01.get())
       self.b = int(entrada02.get())
       self.c = int(entrada03.get())
@@ -20,30 +20,29 @@ class SegundoGrau:
       delta = self.b**2 - 4 * self.a * self.c
 
       print(f'O valor para delta dos numeros informados é {delta}')
-     
+
       #analise_delta
       if delta > 0:
         x1 = (-self.b - delta**0.5) / (2 * self.a)
         x2 = (-self.b + delta**0.5) / (2 * self.a)
 
-        print(f'a função f(a) tem duas raizes reais:\nx1 = {x1}\nx2 = {x2}')
         envio = (f'a função f(a) tem duas raizes reais:\nx1 = {x1}\nx2 = {x2}')
-        
+        texto05['text'] = envio
+
       elif delta == 0:
         x = -self.c / self.b
-        print(f'A função tem duas raizes reais e iguais, x1 e x2 = {x} \n')
-        envio = print(
-          f'A função tem duas raizes reais e iguais, x1 e x2 = {x} \n')
+
+        envio = (f'A função tem duas raizes reais e iguais, x1 e x2 = {x} \n')
+        texto05['text'] = envio
 
       else:
         z_re = self.b / (2 * self.a)
         z_im = ((-delta)**0.5) / (2 * self.a)
-        print(
-          f'A função f(a) tem duas raizes complexas, z1 = {z_re} + {z_im} *i e z2 = {z_re} - {z_im} *i \n'
-        )
+
         envio = (
           f'A função f(a) tem duas raizes complexas, z1 = {z_re} + {z_im} *i e z2 = {z_re} - {z_im} *i \n'
         )
+        texto05['text'] = envio
 
     tela = Tk()
     tela.geometry('600x600')
@@ -72,7 +71,7 @@ class SegundoGrau:
     b1.grid(row=4, column=0)
 
     #o erro está nessa linha onde o campo text do label não está reconhecendo a variavel envio dos if acima na def puxando_dados
-    texto05 = Label(tela, text ='erro na linha 75')
+    texto05 = Label(tela, text='')
     texto05.grid(row=5, column=0)
 
     tela.mainloop()
